@@ -42,5 +42,10 @@ jobs:
       with:
         dotnet-version: '7.0.x'
 
+    - name: Install MAUI Workloads
+      run: |
+        dotnet workload install android --ignore-failed-sources
+        dotnet workload install maui --ignore-failed-sources
+
     - name: Run dotnet test
       run: dotnet test Maui.Ideas.App.Tests/Maui.Ideas.App.Tests.csproj
