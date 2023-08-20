@@ -35,12 +35,10 @@ I've made 1 unit test for MainPageViewModel using the technologies below:
 
 ![image](https://github.com/felipebaltazar/Maui.Ideas.App/assets/19656249/ee2630a0-21eb-41a5-8dc0-c428a2417eac)
 
-## CI/CD
-Ive made a [simple workflow](https://github.com/felipebaltazar/Maui.Ideas.App/actions/runs/5920012382) to build maui android app and run unit tests
-
-
-
 ## UI Tests
 I've made a [Proof of Concept using Maui + Xappim](https://mauicoder.com/xappium-for-android-testing-part-1-setup/),
 and I already worked with Xamarin.UITest but [Xappium](https://xappium.com/) seems to be the future tool for the MAUI and its open source
+
+## CI/CD
+Ive made a [simple workflow](https://github.com/felipebaltazar/Maui.Ideas.App/actions/runs/5920071127) to build maui android app and run unit tests
 
