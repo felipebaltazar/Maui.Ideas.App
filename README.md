@@ -1,4 +1,6 @@
 # Maui.Ideas.App
+![ezgif com-optimize](https://github.com/felipebaltazar/Maui.Ideas.App/assets/19656249/ff0e2658-56f2-486c-bcef-0977816aca52)
+
 Maui application for personal feed explorer using some coding and layout best practices.
 Like async/await with ConfigureAwait for correct contexts. About this, i recommend this [great post from John Thiriet](https://johnthiriet.com/configure-await/) that explains context syncronization's impact on Xamarin.
 [On NDC Olso, 2019 Brandom Minninck has talked about common mistakes](https://codetraveler.io/ndcoslo-asyncawait/) with async/await on .net, and before that he made a library to solve these situations
@@ -27,6 +29,3 @@ I've made 1 unit test for MainPageViewModel using the technologies below:
 
 ![image](https://github.com/felipebaltazar/Maui.Ideas.App/assets/19656249/ee2630a0-21eb-41a5-8dc0-c428a2417eac)
 
-
-
-![ezgif com-optimize](https://github.com/felipebaltazar/Maui.Ideas.App/assets/19656249/ff0e2658-56f2-486c-bcef-0977816aca52)
