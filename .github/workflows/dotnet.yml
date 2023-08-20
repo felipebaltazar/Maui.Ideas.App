@@ -42,4 +42,4 @@ jobs:
       with:
         dotnet-version: '7.0.x'
     - name: Run dotnet test
-      run: dotnet test Maui.Ideas.App.Tests/Maui.Ideas.App.Tests.csproj -v --configuration Debug
+      run: dotnet test Maui.Ideas.App.Tests/Maui.Ideas.App.Tests.csproj
