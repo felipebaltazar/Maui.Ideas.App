@@ -30,14 +30,14 @@
     <Color x:Key="Overlay_Background">#CC000000</Color>
 
     <!--  SUGGESTION FOR DARK MODE  -->
-    <Color x:Key="Text_Dark_Primary">#002544</Color>
-    <Color x:Key="Text_Dark_Secondary">#2E4C66</Color>
-    <Color x:Key="Text_Dark_Tertiary">#576F84</Color>
-    <Color x:Key="Text_Dark_Quartiary">#A3B1BC</Color>
-    <Color x:Key="Border_L2_Dark">#DEE3E7</Color>
-    <Color x:Key="Border_L3_Dark">#F2F2F2</Color>
+    <Color x:Key="Text_Dark_Primary">#F2F2F2</Color>
+    <Color x:Key="Text_Dark_Secondary">#DEE3E7</Color>
+    <Color x:Key="Text_Dark_Tertiary">#F2F2F2</Color>
+    <Color x:Key="Text_Dark_Quartiary">#FFFFFF</Color>
+    <Color x:Key="Border_L2_Dark">#FFFFFF</Color>
+    <Color x:Key="Border_L3_Dark">#FFFFFF</Color>
     <Color x:Key="System_Background_Dark_Primary">#212121</Color>
-    <Color x:Key="BG_L1_Dark">#F2F2F2</Color>
+    <Color x:Key="BG_L1_Dark">#000000</Color>
 
     <SolidColorBrush x:Key="PrimaryBrush"
                      Color="{StaticResource Primary}" />

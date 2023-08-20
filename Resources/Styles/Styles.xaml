@@ -28,7 +28,7 @@
            TargetType="Frame">
         <Setter Property="HeightRequest" Value="40" />
         <Setter Property="WidthRequest" Value="75" />
-        <Setter Property="BorderColor" Value="{StaticResource Border_L2_Light}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource System_Background_Light_Primary}, Dark={StaticResource Border_L2_Dark}}" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="HasShadow" Value="False" />
         <Setter Property="BorderColor" Value="{AppThemeBinding Light={StaticResource Border_L2_Light}, Dark={StaticResource Border_L2_Dark}}" />
@@ -212,7 +212,7 @@
            BasedOn="{StaticResource BasePageStyle}"
            TargetType="TabbedPage">
         <Setter Property="BarBackgroundColor" Value="{AppThemeBinding Light={StaticResource System_Background_Light_Primary}, Dark={StaticResource System_Background_Dark_Primary}}" />
-        <Setter Property="BarTextColor" Value="{AppThemeBinding Light={StaticResource Text_Light_Secondary}, Dark={StaticResource Text_Dark_Secondary}}" />
+        <Setter Property="BarTextColor" Value="{AppThemeBinding Light={StaticResource Text_Light_Secondary}, Dark={StaticResource Text_Dark_Quartiary}}" />
         <Setter Property="UnselectedTabColor" Value="{AppThemeBinding Light={StaticResource Text_Light_Quartiary}, Dark={StaticResource Text_Dark_Quartiary}}" />
         <Setter Property="SelectedTabColor" Value="{AppThemeBinding Light={StaticResource Text_Light_Secondary}, Dark={StaticResource Text_Dark_Secondary}}" />
     </Style>
