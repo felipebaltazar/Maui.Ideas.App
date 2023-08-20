@@ -1,4 +1,5 @@
 # Maui.Ideas.App
+[![Build and Unit Tests](https://github.com/felipebaltazar/Maui.Ideas.App/actions/workflows/dotnet.yml/badge.svg)](https://github.com/felipebaltazar/Maui.Ideas.App/actions/workflows/dotnet.yml)
 <div align="center">
 
 ![ezgif com-optimize](https://github.com/felipebaltazar/Maui.Ideas.App/assets/19656249/ff0e2658-56f2-486c-bcef-0977816aca52)
