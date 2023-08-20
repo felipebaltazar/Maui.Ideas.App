@@ -27,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Maui.Ideas.App.csproj" />
     <ProjectReference Include="..\Maui.Ideas.App\Maui.Ideas.App.csproj" />
   </ItemGroup>
 
