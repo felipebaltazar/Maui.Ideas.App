@@ -1,0 +1,13 @@
+{
+  "platform": "Android",
+  "appPath": "Maui.Ideas.App/bin/Debug/net7.0-android/com.companyname.maui.ideas.app-Signed.apk",
+  "deviceName": "Pixel 3 XL Pie 9.0 - 28",
+  "capabilities": {
+    "avd": "pixel_3_xl_pie_9_0_-_28",
+    "allowDelayAdb": "false",
+    "appWaitActivity": "*.MainActivity",
+    "forceEspressoRebuild": "false",
+    "showGradleLog": "true",
+    "appium:fullReset": "true"
+  }
+}
