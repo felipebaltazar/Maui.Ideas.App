@@ -10,6 +10,7 @@
              xmlns:vm="clr-namespace:Maui.Ideas.App.Presentation.ViewModels.Pages"
              Title="Ideas"
              x:DataType="vm:MainPageViewModel"
+             AutomationId="TitleMessage"
              IconImageSource="bard_fill"
              Style="{DynamicResource BasePageStyle}">
 
@@ -145,6 +146,7 @@
         </ScrollView>
 
         <Frame x:Name="floatingButton"
+               AutomationId="FloatButton"
                Style="{DynamicResource PrimaryGradientStyle}">
             <Image Source="magic_fill"
                    WidthRequest="24" />
