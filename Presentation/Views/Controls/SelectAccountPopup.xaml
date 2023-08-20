@@ -30,72 +30,42 @@
                  CornerRadius="20,20,0,0"
                  Color="White" />
 
-
         <Image Grid.Row="0"
-               Margin="16,0"
-               Aspect="AspectFill"
-               HeightRequest="48"
-               HorizontalOptions="Start"
                Source="instagram_profile"
-               WidthRequest="48">
-            <Image.Clip>
-                <EllipseGeometry Center="24,24"
-                                 RadiusX="24"
-                                 RadiusY="24" />
-            </Image.Clip>
-        </Image>
+               Style="{DynamicResource Avatar_Style}" />
 
         <Label Grid.Row="0"
                Grid.Column="1"
                Margin="16,20"
-               FontFamily="LatoBold"
-               FontSize="16"
-               Text="Instagram"
-               VerticalTextAlignment="Start" />
+               Style="{DynamicResource BaseLabelStyle}"
+               Text="Instagram" />
 
         <Label Grid.Row="0"
                Grid.Column="1"
                Margin="16,20"
-               FontFamily="LatoRegular"
-               FontSize="14"
+               Style="{DynamicResource Label_Regular_S}"
                Text="sarakuz_"
-               TextColor="Gray"
                VerticalTextAlignment="End" />
-
 
         <BoxView Grid.Row="1"
                  Grid.ColumnSpan="3"
                  Color="White" />
 
         <Image Grid.Row="1"
-               Margin="16,0"
-               Aspect="AspectFill"
-               HeightRequest="48"
-               HorizontalOptions="Start"
                Source="tiktok_profile"
-               WidthRequest="48">
-            <Image.Clip>
-                <EllipseGeometry Center="24,24"
-                                 RadiusX="24"
-                                 RadiusY="24" />
-            </Image.Clip>
-        </Image>
+               Style="{DynamicResource Avatar_Style}" />
 
         <Label Grid.Row="1"
                Grid.Column="1"
                Margin="16,20"
-               FontFamily="LatoBold"
-               FontSize="16"
-               Text="TikTok"
-               VerticalTextAlignment="Start" />
+               Style="{DynamicResource BaseLabelStyle}"
+               Text="TikTok" />
 
         <Label Grid.Row="1"
                Grid.Column="1"
                Margin="16,20"
-               FontFamily="LatoRegular"
-               FontSize="14"
+               Style="{DynamicResource Label_Regular_S}"
                Text="rodionsarakuz0"
-               TextColor="Gray"
                VerticalTextAlignment="End" />
 
         <BoxView Grid.Row="3"
@@ -106,10 +76,9 @@
         <Label Grid.Row="3"
                Grid.ColumnSpan="2"
                Margin="16"
-               FontFamily="LatoBold"
                FontSize="18"
-               Text="Settings"
-               VerticalTextAlignment="Center" />
+               Style="{DynamicResource BaseLabelStyle}"
+               Text="Settings" />
 
         <ImageButton Grid.Row="3"
                      Grid.Column="2"

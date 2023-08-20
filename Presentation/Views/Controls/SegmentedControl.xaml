@@ -4,15 +4,7 @@
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:effects="clr-namespace:Maui.Ideas.App.Presentation.Views.Effects"
        x:Name="segmentedControl"
-       Margin="16,13,16,10"
-       Padding="0"
-       BackgroundColor="#F5F6F8"
-       BorderColor="#F5F6F8"
-       CornerRadius="12"
-       HasShadow="False"
-       HeightRequest="40"
-       IsClippedToBounds="True"
-       VerticalOptions="Start">
+       Style="{DynamicResource SegmentedControlStyle}">
 
     <StackLayout x:Name="container"
                  BindableLayout.ItemsSource="{Binding ItemsSource, Source={x:Reference segmentedControl}}"
@@ -31,19 +23,11 @@
                       HorizontalOptions="FillAndExpand"
                       VerticalOptions="FillAndExpand">
 
+                    <BoxView IsVisible="false"
+                             Style="{DynamicResource SegmentedPicker_Option_Background}" />
 
-                    <BoxView CornerRadius="6.93,6.93,6.93,6.93"
-                             HorizontalOptions="Fill"
-                             IsVisible="false"
-                             VerticalOptions="Center"
-                             Color="White" />
-
-                    <Label FontFamily="LatoBold"
-                           HorizontalTextAlignment="Center"
-                           Text="{Binding .}"
-                           TextColor="#002544"
-                           VerticalTextAlignment="Center" />
-
+                    <Label Style="{DynamicResource SegmentedPicker_Option_Style}"
+                           Text="{Binding .}" />
 
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />

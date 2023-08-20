@@ -10,10 +10,11 @@
              xmlns:vm="clr-namespace:Maui.Ideas.App.Presentation.ViewModels.Pages"
              Title="Ideas"
              x:DataType="vm:MainPageViewModel"
-             IconImageSource="bard_fill">
+             IconImageSource="bard_fill"
+             Style="{DynamicResource BasePageStyle}">
 
     <Grid CompressedLayout.IsHeadless="True">
-        <!--  Hack para resolver problema com header da CollectionView  -->
+        <!--  Hack to solve collectionview header problems  -->
         <ScrollView VerticalScrollBarVisibility="Never">
             <StackLayout CompressedLayout.IsHeadless="True"
                          Orientation="Vertical"
@@ -29,18 +30,14 @@
                 </controls:SegmentedControl>
 
                 <Label Margin="16,0"
-                       FontFamily="LatoRegular"
-                       FontSize="12"
                        IsVisible="{x:Bind PostCollection.Count is gt 0}"
-                       Text="Expires in 23:56"
-                       TextColor="#576F84" />
+                       Style="{DynamicResource Body_Compact_S}"
+                       Text="Expires in 23:56" />
 
                 <Label Margin="16"
-                       FontFamily="LatoRegular"
-                       FontSize="16"
                        IsVisible="{x:Bind PostCollection.Count is gt 0}"
-                       Text="Find daily ideas for your inspiration"
-                       TextColor="#2E4C66" />
+                       Style="{DynamicResource Body_Compact_L}"
+                       Text="Find daily ideas for your inspiration" />
 
                 <CollectionView ItemsSource="{x:Bind PostCollection, IsItemsSource=True}"
                                 VerticalScrollBarVisibility="Never">
@@ -53,18 +50,13 @@
 
                             <Image Source="bard_fill" />
 
-                            <Label FontFamily="LatoBold"
-                                   FontSize="18"
-                                   HorizontalTextAlignment="Center"
-                                   Text="Ideas storage"
-                                   VerticalTextAlignment="Center" />
+                            <Label HorizontalTextAlignment="Center"
+                                   Style="{DynamicResource Label_Bold_L}"
+                                   Text="Ideas storage" />
 
-                            <Label FontFamily="LatoBold"
-                                   FontSize="18"
-                                   HorizontalTextAlignment="Center"
-                                   Text="Store here Ideas you like from Daily section or self generated content"
-                                   TextColor="#576F84"
-                                   VerticalTextAlignment="Center" />
+                            <Label HorizontalTextAlignment="Center"
+                                   Style="{DynamicResource Body_Compact_M}"
+                                   Text="Store here Ideas you like from Daily section or self generated content" />
                         </StackLayout>
                     </CollectionView.EmptyView>
 
@@ -78,109 +70,72 @@
                                 <Label Grid.Row="0"
                                        Grid.ColumnSpan="3"
                                        Margin="16,0"
-                                       FontFamily="LatoBlack"
-                                       FontSize="22"
-                                       LineBreakMode="WordWrap"
-                                       MaxLines="2"
-                                       Text="{x:Bind Title}"
-                                       TextColor="#002544"
-                                       VerticalTextAlignment="Center" />
+                                       Style="{DynamicResource Title_M}"
+                                       Text="{x:Bind Title}" />
 
                                 <controls:LazyImage Grid.Row="1"
-                                                    Margin="16,0"
-                                                    HeightRequest="48"
-                                                    HorizontalOptions="Start"
                                                     Source="{x:Bind new system:Uri(User.Avatar)}"
-                                                    WidthRequest="48">
-                                    <controls:LazyImage.Clip>
-                                        <EllipseGeometry Center="24,24"
-                                                         RadiusX="24"
-                                                         RadiusY="24" />
-                                    </controls:LazyImage.Clip>
-                                </controls:LazyImage>
+                                                    Style="{DynamicResource Image_Avatar_Style}" />
 
                                 <Label Grid.Row="1"
-                                       Grid.ColumnSpan="2"
+                                       Grid.ColumnSpan="3"
                                        Margin="70,0"
-                                       FontFamily="LatoBlack"
-                                       Text="{x:Bind User.Name}"
-                                       TextColor="#262626"
-                                       VerticalTextAlignment="Center" />
+                                       Style="{DynamicResource BaseLabelStyle}"
+                                       Text="{x:Bind User.Name}" />
 
                                 <controls:LazyImage Grid.Row="2"
                                                     Grid.ColumnSpan="3"
-                                                    Margin="0,16,0,0"
-                                                    Aspect="AspectFill"
-                                                    HeightRequest="404"
-                                                    HorizontalOptions="FillAndExpand"
                                                     Source="{x:Bind new system:Uri(Image)}"
-                                                    VerticalOptions="Center" />
+                                                    Style="{DynamicResource Image_Content_Style}" />
 
                                 <Image Grid.Row="2"
                                        Grid.Column="2"
-                                       Margin="0,16,12,0"
-                                       HeightRequest="24"
-                                       HorizontalOptions="End"
                                        Source="own_image_button"
-                                       VerticalOptions="Start" />
+                                       Style="{DynamicResource Secondary_Thin_Style}" />
 
                                 <Label Grid.Row="3"
                                        Grid.ColumnSpan="3"
                                        Margin="16,0"
-                                       FontFamily="LatoBlack"
-                                       FontSize="16"
+                                       Style="{DynamicResource Label_Regular_M}"
                                        Text="{x:Bind Description}"
-                                       TextColor="#2E4C66"
                                        VerticalTextAlignment="Center" />
 
                                 <Frame Grid.Row="4"
                                        Margin="16,0"
-                                       Padding="0"
-                                       BorderColor="#dee3e7"
-                                       CornerRadius="10"
-                                       HeightRequest="40"
                                        HorizontalOptions="StartAndExpand"
-                                       WidthRequest="75">
+                                       Style="{DynamicResource BaseFrameStyle}">
 
-                                    <ImageButton HeightRequest="20"
-                                                 Source="loop_right_line" />
+                                    <ImageButton Source="loop_right_line"
+                                                 Style="{DynamicResource Button_S}" />
                                 </Frame>
 
                                 <Frame Grid.Row="4"
                                        Grid.Column="1"
-                                       Padding="0"
-                                       BorderColor="#dee3e7"
-                                       CornerRadius="10"
-                                       HeightRequest="40"
+                                       Style="{DynamicResource BaseFrameStyle}"
                                        WidthRequest="200">
-                                    <StackLayout Orientation="Horizontal">
-                                        <ImageButton HeightRequest="20"
-                                                     HorizontalOptions="CenterAndExpand"
-                                                     Source="thumb_up_line" />
+                                    <StackLayout CompressedLayout.IsHeadless="true"
+                                                 Orientation="Horizontal">
+                                        <ImageButton Source="thumb_up_line"
+                                                     Style="{DynamicResource Button_S}" />
 
                                         <BoxView HorizontalOptions="Center"
                                                  VerticalOptions="FillAndExpand"
                                                  WidthRequest="1"
-                                                 Color="#dee3e7" />
+                                                 Color="{DynamicResource Border_L2_Light}" />
 
-                                        <ImageButton HeightRequest="20"
-                                                     HorizontalOptions="CenterAndExpand"
-                                                     Source="thumb_down_line" />
+                                        <ImageButton Source="thumb_down_line"
+                                                     Style="{DynamicResource Button_S}" />
                                     </StackLayout>
                                 </Frame>
 
                                 <Frame Grid.Row="4"
                                        Grid.Column="2"
                                        Margin="16,0"
-                                       BorderColor="#dee3e7"
-                                       CornerRadius="10"
-                                       HeightRequest="40"
                                        HorizontalOptions="EndAndExpand"
-                                       WidthRequest="75">
+                                       Style="{DynamicResource BaseFrameStyle}">
 
-                                    <ImageButton HeightRequest="20"
-                                                 HorizontalOptions="CenterAndExpand"
-                                                 Source="bookmark_line" />
+                                    <ImageButton Source="bookmark_line"
+                                                 Style="{DynamicResource Button_S}" />
                                 </Frame>
                             </Grid>
                         </DataTemplate>
@@ -189,25 +144,18 @@
             </StackLayout>
         </ScrollView>
 
-        <Frame Margin="16"
-               Padding="0"
-               BorderColor="Transparent"
-               CornerRadius="20"
-               HeightRequest="56"
-               HorizontalOptions="Center"
-               VerticalOptions="End"
-               WidthRequest="56">
-
+        <Frame x:Name="floatingButton"
+               Style="{DynamicResource PrimaryGradientStyle}">
             <Image Source="magic_fill"
                    WidthRequest="24" />
 
-            <Frame.Background>
-                <LinearGradientBrush EndPoint="1,0">
-                    <GradientStop Offset="0.1" Color="#F0888F" />
-                    <GradientStop Offset="0.5" Color="#E65EE7" />
-                    <GradientStop Offset="1.0" Color="#4A84F7" />
-                </LinearGradientBrush>
-            </Frame.Background>
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+            </Frame.GestureRecognizers>
         </Frame>
+
+        <BoxView HeightRequest="1"
+                 VerticalOptions="End"
+                 Color="{DynamicResource Border_L3_Light}" />
     </Grid>
 </ContentPage>

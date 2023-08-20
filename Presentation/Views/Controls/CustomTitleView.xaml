@@ -6,16 +6,9 @@
              Orientation="Horizontal">
 
     <Label x:Name="titleLabel"
-           Margin="16,0"
-           FontFamily="LatoBold"
-           FontSize="32"
-           HorizontalTextAlignment="Start"
-           TextColor="Black"
-           VerticalTextAlignment="Center" />
+           Style="{DynamicResource Title_L}" />
 
-    <ImageButton Margin="19,0"
-                 Clicked="ImageButton_Clicked"
-                 HorizontalOptions="EndAndExpand"
+    <ImageButton Clicked="ImageButton_Clicked"
                  Source="instagram_colored"
-                 VerticalOptions="Center" />
+                 Style="{DynamicResource Button_M}" />
 </StackLayout>

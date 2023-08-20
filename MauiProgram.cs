@@ -26,23 +26,16 @@ public static class MauiProgram
 			.UseMauiApp<App>()
 			.ConfigureEffects(e =>
 			{
+#if __ANDROID__ || __IOS__
 				e.Add<ShadowRoutingEffect, ShadowPlatformEffect>();
+#endif
 			})
 			.ConfigureFonts(fonts =>
 			{
-				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-
 				fonts.AddFont("Lato-Black.ttf", "LatoBlack");
-				fonts.AddFont("Lato-BlackItalic.ttf", "LatoBlackItalic");
 				fonts.AddFont("Lato-Bold.ttf", "LatoBold");
-				fonts.AddFont("Lato-BoldItalic.ttf", "LatoBoldItalic");
-				fonts.AddFont("Lato-Italic.ttf", "LatoItalic");
 				fonts.AddFont("Lato-Light.ttf", "LatoLight");
-				fonts.AddFont("Lato-LightItalic.ttf", "LatoLightItalic");
 				fonts.AddFont("Lato-Regular.ttf", "LatoRegular");
-				fonts.AddFont("Lato-Thin.ttf", "LatoThin");
-				fonts.AddFont("Lato-ThinItalic.ttf", "LatoItalic");
 			})
             .ConfigureMopups();
 
@@ -51,10 +44,11 @@ public static class MauiProgram
 #endif
 		var apiData = RestService.For<IApiData>(Constants.Api.BASE_URL);
 
-        //Register Services
+		//Register Services
 		builder.Services.AddSingleton(apiData);
         builder.Services.AddSingleton<IApiRepository, ApiRepository>();
 		builder.Services.AddSingleton<ILogger, AppCenterLoggerService>();
+		builder.Services.AddSingleton<IMainThreadService, MainThreadService>();
         builder.Services.AddSingleton(MopupService.Instance);
 
         builder.Services.AddSingleton<INavigationService, NavigationService>();

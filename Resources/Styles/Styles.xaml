@@ -2,36 +2,96 @@
 <?xaml-comp compile="true" ?>
 <ResourceDictionary x:Class="Maui.Ideas.App.Resources.Styles.ApplicationStyles"
                     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:controls="clr-namespace:Maui.Ideas.App.Presentation.Views.Controls">
 
-    <Style TargetType="ActivityIndicator">
+    <Style x:Key="BaseActivityIndicatorStyle"
+           TargetType="ActivityIndicator">
         <Setter Property="Color" Value="{StaticResource System_Background_Light_Primary}" />
     </Style>
 
-    <Style TargetType="IndicatorView">
-        <Setter Property="IndicatorColor" Value="{StaticResource System_Background_Light_Primary}" />
-        <Setter Property="SelectedIndicatorColor" Value="{StaticResource System_Background_Light_Primary}" />
-    </Style>
-
-    <Style TargetType="Border">
-        <Setter Property="Stroke" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray500}}" />
-        <Setter Property="StrokeShape" Value="Rectangle" />
-        <Setter Property="StrokeThickness" Value="1" />
-    </Style>
-
-    <Style TargetType="BoxView">
+    <Style x:Key="BaseBoxStyle"
+           TargetType="BoxView">
         <Setter Property="Color" Value="{AppThemeBinding Light={StaticResource System_Background_Light_Primary}, Dark={StaticResource System_Background_Dark_Primary}}" />
     </Style>
 
+    <Style x:Key="SegmentedPicker_Option_Background"
+           BasedOn="{StaticResource BaseBoxStyle}"
+           TargetType="BoxView">
+        <Setter Property="CornerRadius" Value="6.93,6.93,6.93,6.93" />
+        <Setter Property="HorizontalOptions" Value="Fill" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
 
-    <Style TargetType="Frame">
+
+    <Style x:Key="BaseFrameStyle"
+           TargetType="Frame">
+        <Setter Property="HeightRequest" Value="40" />
+        <Setter Property="WidthRequest" Value="75" />
+        <Setter Property="BorderColor" Value="{StaticResource Border_L2_Light}" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="HasShadow" Value="False" />
         <Setter Property="BorderColor" Value="{AppThemeBinding Light={StaticResource Border_L2_Light}, Dark={StaticResource Border_L2_Dark}}" />
         <Setter Property="CornerRadius" Value="10" />
     </Style>
 
-    <Style TargetType="ImageButton">
+    <Style x:Key="PrimaryGradientStyle"
+           BasedOn="{StaticResource BaseFrameStyle}"
+           TargetType="Frame">
+        <Setter Property="Background" Value="{StaticResource Accent_Smooth_Gradient}" />
+        <Setter Property="VerticalOptions" Value="End" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="Margin" Value="16" />
+        <Setter Property="HeightRequest" Value="56" />
+        <Setter Property="WidthRequest" Value="56" />
+        <Setter Property="BorderColor" Value="Transparent" />
+        <Setter Property="CornerRadius" Value="20" />
+    </Style>
+
+    <Style x:Key="Secondary_Thin_Style"
+           TargetType="Image">
+        <Setter Property="VerticalOptions" Value="Start" />
+        <Setter Property="HorizontalOptions" Value="End" />
+        <Setter Property="Margin" Value="0,16,12,0" />
+        <Setter Property="HeightRequest" Value="24" />
+    </Style>
+
+    <Style x:Key="Image_Content_Style"
+           TargetType="controls:LazyImage">
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="Margin" Value="0,16,0,0" />
+        <Setter Property="Aspect" Value="AspectFill" />
+        <Setter Property="HeightRequest" Value="404" />
+    </Style>
+
+    <EllipseGeometry x:Key="Avatar_Clip"
+                     Center="24,24"
+                     RadiusX="24"
+                     RadiusY="24" />
+
+    <Style x:Key="Avatar_Style"
+           TargetType="Image">
+        <Setter Property="HorizontalOptions" Value="Start" />
+        <Setter Property="Aspect" Value="AspectFill" />
+        <Setter Property="Margin" Value="16,0" />
+        <Setter Property="HeightRequest" Value="48" />
+        <Setter Property="WidthRequest" Value="48" />
+        <Setter Property="Clip" Value="{StaticResource Avatar_Clip}" />
+    </Style>
+
+    <Style x:Key="Image_Avatar_Style"
+           TargetType="controls:LazyImage">
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="HorizontalOptions" Value="Start" />
+        <Setter Property="Margin" Value="16,0" />
+        <Setter Property="HeightRequest" Value="48" />
+        <Setter Property="WidthRequest" Value="48" />
+        <Setter Property="Clip" Value="{StaticResource Avatar_Clip}" />
+    </Style>
+
+    <Style x:Key="BaseImageButtonStyle"
+           TargetType="ImageButton">
         <Setter Property="Opacity" Value="1" />
         <Setter Property="BorderColor" Value="Transparent" />
         <Setter Property="BorderWidth" Value="0" />
@@ -40,14 +100,103 @@
         <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
     </Style>
 
-    <Style TargetType="Label">
+    <Style x:Key="Button_S"
+           BasedOn="{StaticResource BaseImageButtonStyle}"
+           TargetType="ImageButton">
+        <Setter Property="HeightRequest" Value="20" />
+        <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+    </Style>
+
+    <Style x:Key="Button_M"
+           BasedOn="{StaticResource BaseImageButtonStyle}"
+           TargetType="ImageButton">
+        <Setter Property="HeightRequest" Value="40" />
+        <Setter Property="HorizontalOptions" Value="EndAndExpand" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="Margin" Value="19,0" />
+    </Style>
+
+    <Style x:Key="BaseLabelStyle"
+           TargetType="Label">
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Text_Light_Primary}, Dark={StaticResource Text_Dark_Primary}}" />
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="FontFamily" Value="LatoBlack" />
         <Setter Property="FontSize" Value="16" />
+        <Setter Property="VerticalTextAlignment" Value="Center" />
     </Style>
 
-    <Style ApplyToDerivedTypes="True"
+    <Style x:Key="SegmentedPicker_Option_Style"
+           BasedOn="{StaticResource BaseLabelStyle}"
+           TargetType="Label">
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+        <Setter Property="FontFamily" Value="LatoBold" />
+    </Style>
+
+    <Style x:Key="Body_Compact_S"
+           BasedOn="{StaticResource BaseLabelStyle}"
+           TargetType="Label">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Text_Light_Tertiary}, Dark={StaticResource Text_Dark_Tertiary}}" />
+        <Setter Property="FontFamily" Value="LatoRegular" />
+        <Setter Property="FontSize" Value="12" />
+    </Style>
+
+    <Style x:Key="Body_Compact_M"
+           BasedOn="{StaticResource Body_Compact_S}"
+           TargetType="Label">
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+
+    <Style x:Key="Body_Compact_L"
+           BasedOn="{StaticResource BaseLabelStyle}"
+           TargetType="Label">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Text_Light_Secondary}, Dark={StaticResource Text_Dark_Secondary}}" />
+        <Setter Property="FontFamily" Value="LatoRegular" />
+    </Style>
+
+    <Style x:Key="Label_Bold_L"
+           BasedOn="{StaticResource BaseLabelStyle}"
+           TargetType="Label">
+        <Setter Property="FontFamily" Value="LatoBold" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="MaxLines" Value="2" />
+        <Setter Property="LineBreakMode" Value="WordWrap" />
+    </Style>
+
+    <Style x:Key="Label_Regular_M"
+           BasedOn="{StaticResource BaseLabelStyle}"
+           TargetType="Label">
+        <Setter Property="FontFamily" Value="LatoBlack" />
+        <Setter Property="FontSize" Value="16" />
+    </Style>
+
+    <Style x:Key="Label_Regular_S"
+           BasedOn="{StaticResource BaseLabelStyle}"
+           TargetType="Label">
+        <Setter Property="FontFamily" Value="LatoRegular" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="TextColor" Value="Gray" />
+    </Style>
+
+    <Style x:Key="Title_L"
+           BasedOn="{StaticResource BaseLabelStyle}"
+           TargetType="Label">
+        <Setter Property="FontFamily" Value="LatoBold" />
+        <Setter Property="Margin" Value="16,0" />
+        <Setter Property="FontSize" Value="32" />
+        <Setter Property="HorizontalTextAlignment" Value="Start" />
+        <Setter Property="VerticalTextAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="Title_M"
+           BasedOn="{StaticResource BaseLabelStyle}"
+           TargetType="Label">
+        <Setter Property="FontSize" Value="22" />
+        <Setter Property="MaxLines" Value="2" />
+        <Setter Property="LineBreakMode" Value="WordWrap" />
+    </Style>
+
+    <Style x:Key="BasePageStyle"
+           ApplyToDerivedTypes="True"
            TargetType="Page">
         <Setter Property="Padding" Value="0" />
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource System_Background_Light_Primary}, Dark={StaticResource System_Background_Dark_Primary}}" />
@@ -59,11 +208,25 @@
         <Setter Property="IconColor" Value="{AppThemeBinding Light={StaticResource Text_Light_Primary}, Dark={StaticResource Text_Dark_Primary}}" />
     </Style>
 
-    <Style TargetType="TabbedPage">
+    <Style x:Key="MainPageStyle"
+           BasedOn="{StaticResource BasePageStyle}"
+           TargetType="TabbedPage">
         <Setter Property="BarBackgroundColor" Value="{AppThemeBinding Light={StaticResource System_Background_Light_Primary}, Dark={StaticResource System_Background_Dark_Primary}}" />
         <Setter Property="BarTextColor" Value="{AppThemeBinding Light={StaticResource Text_Light_Secondary}, Dark={StaticResource Text_Dark_Secondary}}" />
         <Setter Property="UnselectedTabColor" Value="{AppThemeBinding Light={StaticResource Text_Light_Quartiary}, Dark={StaticResource Text_Dark_Quartiary}}" />
         <Setter Property="SelectedTabColor" Value="{AppThemeBinding Light={StaticResource Text_Light_Secondary}, Dark={StaticResource Text_Dark_Secondary}}" />
     </Style>
 
+    <Style x:Key="SegmentedControlStyle"
+           TargetType="Frame">
+        <Setter Property="HeightRequest" Value="40" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource BG_L1_Light}, Dark={StaticResource BG_L1_Dark}}" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Margin" Value="16,13,16,10" />
+        <Setter Property="HasShadow" Value="False" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Light={StaticResource BG_L1_Light}, Dark={StaticResource BG_L1_Dark}}" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="IsClippedToBounds" Value="True" />
+        <Setter Property="VerticalOptions" Value="Start" />
+    </Style>
 </ResourceDictionary>

@@ -31,6 +31,8 @@ public abstract class BaseViewModel : ObservableObject, IQueryAttributable
 
     protected ILogger Logger { get; }
 
+    public IMainThreadService MainThreadService { get; }
+
     #endregion
 
     #region Constructors
@@ -38,11 +40,13 @@ public abstract class BaseViewModel : ObservableObject, IQueryAttributable
     protected BaseViewModel(
         ILazyDependency<ILoaderService> loaderService,
         ILazyDependency<INavigationService> navigationService,
-        ILogger logger)
+        IMainThreadService mainThreadService,
+        ILogger logger) : base(mainThreadService)
     {
         _navigationService = navigationService;
         _loaderService = loaderService;
         Logger = logger;
+        MainThreadService = mainThreadService;
     }
 
     #endregion

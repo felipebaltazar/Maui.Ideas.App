@@ -1,5 +1,12 @@
 # Maui.Ideas.App
-Maui application for personal feed explorer
+Maui application for personal feed explorer using some coding and layout best practices.
+Like async/await with ConfigureAwait for correct contexts. About this i recommend this [great post from John Thiriet](https://johnthiriet.com/configure-await/) that explains about context syncronization impact on Xamarin.
+[On NDC Olso, 2019 Brandom Minninck has talked about common mistakes](https://codetraveler.io/ndcoslo-asyncawait/) with async/await on .net, that born a library to solve theses situations
+
+Also ive used the best practices for xamarin/maui layouts like:
+ - [Choosing a correct layout for each situation](https://learn.microsoft.com/en-us/xamarin/xamarin-forms/deploy-test/performance#choose-the-correct-layout)
+ - [Optimized the all layouts preventing to use AUTO (grid) and other heavy properties as possible ](https://learn.microsoft.com/en-us/xamarin/xamarin-forms/deploy-test/performance#optimize-layout-performance)
+ - [Ive used the Layout Compression as possible to reduce nested view hierarchy](https://learn.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/layouts/layout-compression)
 
 ## CollectionView Performance
 Since we have issues with [Bindings](https://github.com/xamarin/Xamarin.Forms/issues/8718) and some [GC pressure on lists](https://codetraveler.io/2020/07/12/improving-collectionview-scrolling/)

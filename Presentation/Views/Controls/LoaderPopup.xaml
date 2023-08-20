@@ -4,19 +4,21 @@
                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                   xmlns:Animations="clr-namespace:Mopups.Animations;assembly=Mopups"
                   xmlns:Mopups="clr-namespace:Mopups.Pages;assembly=Mopups"
-                  BackgroundColor="#CC000000"
+                  BackgroundColor="{DynamicResource Overlay_Background}"
                   BackgroundInputTransparent="False"
                   CloseWhenBackgroundIsClicked="false"
                   HasSystemPadding="False">
     <Mopups:PopupPage.Animation>
         <Animations:FadeAnimation />
     </Mopups:PopupPage.Animation>
-    <Grid>
+
+    <Grid CompressedLayout.IsHeadless="True">
+
         <ActivityIndicator HeightRequest="48"
                            IsRunning="True"
                            IsVisible="true"
                            WidthRequest="48"
-                           Color="White" />
+                           Color="{DynamicResource System_Background_Light_Primary}" />
     </Grid>
 
 </Mopups:PopupPage>

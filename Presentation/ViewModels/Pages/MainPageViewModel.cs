@@ -44,8 +44,9 @@ public class MainPageViewModel : BaseViewModel, IAppearingAware
         IApiRepository apiRepository,
         ILazyDependency<ILoaderService> loaderService,
         ILazyDependency<INavigationService> navigationService,
+        IMainThreadService mainThreadService,
         ILogger logger)
-    : base(loaderService, navigationService, logger)
+    : base(loaderService, navigationService, mainThreadService, logger)
     {
         _apiRepository = apiRepository;
     }
@@ -88,7 +89,7 @@ public class MainPageViewModel : BaseViewModel, IAppearingAware
             var response = await _apiRepository.GetApiDataAsync().ConfigureAwait(false);
             _fakePagination = new List<Post>(response.Posts);
 
-            MainThread.BeginInvokeOnMainThread(() => PostCollection.ReplaceRange(_fakePagination));
+            MainThreadService.BeginInvokeOnMainThread(() => PostCollection.ReplaceRange(_fakePagination));
         });
     }
 
@@ -97,7 +98,7 @@ public class MainPageViewModel : BaseViewModel, IAppearingAware
         return ExecuteBusyActionAsync(() =>
         {
             var newData = new List<Post>(0);
-            MainThread.BeginInvokeOnMainThread(() => PostCollection.ReplaceRange(newData));
+            MainThreadService.BeginInvokeOnMainThread(() => PostCollection.ReplaceRange(newData));
 
             return Task.CompletedTask;
         });

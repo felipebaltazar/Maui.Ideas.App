@@ -1,14 +1,22 @@
-﻿using System.ComponentModel;
+﻿using Maui.Ideas.App.Abstractions;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace Maui.Ideas.App.Models;
 
 public abstract class ObservableObject : INotifyPropertyChanged
 {
+    private readonly IMainThreadService _mainThreadService;
+
     /// <summary>
     /// Occurs when a property value changes.
     /// </summary>
     public event PropertyChangedEventHandler PropertyChanged;
+
+    protected ObservableObject(IMainThreadService mainThreadService)
+    {
+        _mainThreadService = mainThreadService;
+    }
 
     /// <summary>
     /// Checks if a property already matches a desired value. Sets the property and
@@ -72,13 +80,13 @@ public abstract class ObservableObject : INotifyPropertyChanged
     /// <param name="args">The PropertyChangedEventArgs</param>
     protected virtual void OnPropertyChanged(PropertyChangedEventArgs args)
     {
-        if (MainThread.IsMainThread)
+        if (_mainThreadService.IsMainThread)
         {
             PropertyChanged?.Invoke(this, args);
         }
         else
         {
-            MainThread.BeginInvokeOnMainThread(() => PropertyChanged?.Invoke(this, args));
+            _mainThreadService.BeginInvokeOnMainThread(() => PropertyChanged?.Invoke(this, args));
         }
     }
 }

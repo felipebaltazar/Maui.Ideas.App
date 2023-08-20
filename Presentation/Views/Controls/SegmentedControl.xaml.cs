@@ -4,17 +4,26 @@ using System.Windows.Input;
 
 namespace Maui.Ideas.App.Presentation.Views.Controls;
 
+/// <summary>
+/// A basic idea for a segmented control
+/// </summary>
 public partial class SegmentedControl : Frame
 {
+    #region Bindable Properties
+
     public static BindableProperty SegmentSelectedCommandProperty = BindableProperty.Create(
-        nameof(SegmentSelectedCommand),
-        typeof(ICommand),
-        typeof(SegmentedControl));
+   nameof(SegmentSelectedCommand),
+   typeof(ICommand),
+   typeof(SegmentedControl));
 
     public static BindableProperty ItemsSourceProperty = BindableProperty.Create(
         nameof(ItemsSource),
         typeof(IEnumerable),
         typeof(SegmentedControl));
+
+    #endregion
+
+    #region Properties
 
     public ICommand SegmentSelectedCommand
     {
@@ -32,12 +41,19 @@ public partial class SegmentedControl : Frame
         }
     }
 
+    #endregion
+
+    #region Constructor
 
     public SegmentedControl()
     {
         InitializeComponent();
         container.ChildAdded += Container_ChildAdded;
     }
+
+    #endregion
+
+    #region Private Methods
 
     private void Container_ChildAdded(object sender, ElementEventArgs e)
     {
@@ -55,9 +71,7 @@ public partial class SegmentedControl : Frame
         if (!canExecute)
             return;
 
-        string selectedInfo = string.Empty;
-
-
+        var selectedInfo = string.Empty;
         foreach (var item in container)
         {
             if (item is Grid grid)
@@ -90,4 +104,6 @@ public partial class SegmentedControl : Frame
         if (background is BoxView backgroundBoxView)
             backgroundBoxView.IsVisible = isSelected;
     }
+    
+    #endregion
 }

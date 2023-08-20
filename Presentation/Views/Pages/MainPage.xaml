@@ -12,8 +12,7 @@
             android:TabbedPage.IsSwipePagingEnabled="false"
             android:TabbedPage.ToolbarPlacement="Bottom"
             x:DataType="vm:MainPageViewModel"
-            SelectedTabColor="#2E4C66"
-            UnselectedTabColor="#A3B1BC">
+            Style="{x:DynamicResource MainPageStyle}">
 
     <NavigationPage.TitleView>
         <controls:CustomTitleView Title="{Binding CurrentPage.Title, Source={x:Reference tabbedPage}}"
