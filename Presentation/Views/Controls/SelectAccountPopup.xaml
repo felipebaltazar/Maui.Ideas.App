@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Mopups:PopupPage x:Class="Maui.Ideas.App.Presentation.Views.Controls.SelectAccountPopup"
+                  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:Animations="clr-namespace:Mopups.Animations;assembly=Mopups"
+                  xmlns:Mopups="clr-namespace:Mopups.Pages;assembly=Mopups"
+                  xmlns:effects="clr-namespace:Maui.Ideas.App.Presentation.Views.Effects"
+                  BackgroundColor="Transparent"
+                  BackgroundInputTransparent="False"
+                  CloseWhenBackgroundIsClicked="True"
+                  HasSystemPadding="False">
+    <Mopups:PopupPage.Animation>
+        <Animations:FadeAnimation />
+    </Mopups:PopupPage.Animation>
+
+    <Grid Margin="16,100"
+          effects:ShadowRoutingEffect.Color="Black"
+          effects:ShadowRoutingEffect.OffsetX="1"
+          effects:ShadowRoutingEffect.OffsetY="1"
+          effects:ShadowRoutingEffect.Radius="150"
+          ColumnDefinitions="60,*,60"
+          HorizontalOptions="End"
+          RowDefinitions="80,80,6,60"
+          RowSpacing="1"
+          VerticalOptions="Start"
+          WidthRequest="280">
+
+        <BoxView Grid.Row="0"
+                 Grid.ColumnSpan="3"
+                 CornerRadius="20,20,0,0"
+                 Color="White" />
+
+
+        <Image Grid.Row="0"
+               Margin="16,0"
+               Aspect="AspectFill"
+               HeightRequest="48"
+               HorizontalOptions="Start"
+               Source="instagram_profile"
+               WidthRequest="48">
+            <Image.Clip>
+                <EllipseGeometry Center="24,24"
+                                 RadiusX="24"
+                                 RadiusY="24" />
+            </Image.Clip>
+        </Image>
+
+        <Label Grid.Row="0"
+               Grid.Column="1"
+               Margin="16,20"
+               FontFamily="LatoBold"
+               FontSize="16"
+               Text="Instagram"
+               VerticalTextAlignment="Start" />
+
+        <Label Grid.Row="0"
+               Grid.Column="1"
+               Margin="16,20"
+               FontFamily="LatoRegular"
+               FontSize="14"
+               Text="sarakuz_"
+               TextColor="Gray"
+               VerticalTextAlignment="End" />
+
+
+        <BoxView Grid.Row="1"
+                 Grid.ColumnSpan="3"
+                 Color="White" />
+
+        <Image Grid.Row="1"
+               Margin="16,0"
+               Aspect="AspectFill"
+               HeightRequest="48"
+               HorizontalOptions="Start"
+               Source="tiktok_profile"
+               WidthRequest="48">
+            <Image.Clip>
+                <EllipseGeometry Center="24,24"
+                                 RadiusX="24"
+                                 RadiusY="24" />
+            </Image.Clip>
+        </Image>
+
+        <Label Grid.Row="1"
+               Grid.Column="1"
+               Margin="16,20"
+               FontFamily="LatoBold"
+               FontSize="16"
+               Text="TikTok"
+               VerticalTextAlignment="Start" />
+
+        <Label Grid.Row="1"
+               Grid.Column="1"
+               Margin="16,20"
+               FontFamily="LatoRegular"
+               FontSize="14"
+               Text="rodionsarakuz0"
+               TextColor="Gray"
+               VerticalTextAlignment="End" />
+
+        <BoxView Grid.Row="3"
+                 Grid.ColumnSpan="3"
+                 CornerRadius="0,0,20,20"
+                 Color="White" />
+
+        <Label Grid.Row="3"
+               Grid.ColumnSpan="2"
+               Margin="16"
+               FontFamily="LatoBold"
+               FontSize="18"
+               Text="Settings"
+               VerticalTextAlignment="Center" />
+
+        <ImageButton Grid.Row="3"
+                     Grid.Column="2"
+                     Margin="16,8"
+                     Source="gear_solid" />
+
+        <Grid.Effects>
+            <effects:ShadowRoutingEffect />
+        </Grid.Effects>
+
+    </Grid>
+</Mopups:PopupPage>

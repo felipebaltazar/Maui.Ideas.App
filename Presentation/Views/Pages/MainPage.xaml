@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage x:Class="Maui.Ideas.App.Presentation.Views.Pages.MainPage"
+            xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+            xmlns:controls="clr-namespace:Maui.Ideas.App.Presentation.Views.Controls"
+            xmlns:model="clr-namespace:Maui.Ideas.App.Models"
+            xmlns:mx="http://compiledbindings.com/x"
+            xmlns:pages="clr-namespace:Maui.Ideas.App.Presentation.Views.Pages"
+            xmlns:vm="clr-namespace:Maui.Ideas.App.Presentation.ViewModels.Pages"
+            x:Name="tabbedPage"
+            android:TabbedPage.IsSwipePagingEnabled="false"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            x:DataType="vm:MainPageViewModel"
+            SelectedTabColor="#2E4C66"
+            UnselectedTabColor="#A3B1BC">
+
+    <NavigationPage.TitleView>
+        <controls:CustomTitleView Title="{Binding CurrentPage.Title, Source={x:Reference tabbedPage}}"
+                                  MenuIconCommand="{x:Bind AccountSelectCommand}" />
+    </NavigationPage.TitleView>
+
+    <pages:IdeasPage />
+    <pages:StrategyPage />
+</TabbedPage>

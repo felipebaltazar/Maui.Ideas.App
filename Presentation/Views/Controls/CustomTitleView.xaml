@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<StackLayout x:Class="Maui.Ideas.App.Presentation.Views.Controls.CustomTitleView"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             HorizontalOptions="FillAndExpand"
+             Orientation="Horizontal">
+
+    <Label x:Name="titleLabel"
+           Margin="16,0"
+           FontFamily="LatoBold"
+           FontSize="32"
+           HorizontalTextAlignment="Start"
+           TextColor="Black"
+           VerticalTextAlignment="Center" />
+
+    <ImageButton Margin="19,0"
+                 Clicked="ImageButton_Clicked"
+                 HorizontalOptions="EndAndExpand"
+                 Source="instagram_colored"
+                 VerticalOptions="Center" />
+</StackLayout>

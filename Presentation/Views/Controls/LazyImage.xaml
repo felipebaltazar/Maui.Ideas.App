@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView x:Class="Maui.Ideas.App.Presentation.Views.Controls.LazyImage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="#CACACA">
+    <Grid CompressedLayout.IsHeadless="true">
+        <ActivityIndicator x:Name="loader"
+                           HeightRequest="48"
+                           IsRunning="True"
+                           IsVisible="true"
+                           WidthRequest="48"
+                           Color="Black" />
+
+        <Image x:Name="imageView"
+               Opacity="0" />
+    </Grid>
+
+</ContentView>

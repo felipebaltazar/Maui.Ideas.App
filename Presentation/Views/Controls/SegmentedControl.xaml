@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Frame x:Class="Maui.Ideas.App.Presentation.Views.Controls.SegmentedControl"
+       xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:effects="clr-namespace:Maui.Ideas.App.Presentation.Views.Effects"
+       x:Name="segmentedControl"
+       Margin="16,13,16,10"
+       Padding="0"
+       BackgroundColor="#F5F6F8"
+       BorderColor="#F5F6F8"
+       CornerRadius="12"
+       HasShadow="False"
+       HeightRequest="40"
+       IsClippedToBounds="True"
+       VerticalOptions="Start">
+
+    <StackLayout x:Name="container"
+                 BindableLayout.ItemsSource="{Binding ItemsSource, Source={x:Reference segmentedControl}}"
+                 CompressedLayout.IsHeadless="True"
+                 HorizontalOptions="Fill"
+                 Orientation="Horizontal"
+                 Spacing="0">
+
+        <BindableLayout.ItemTemplate>
+            <DataTemplate>
+                <Grid Padding="2.5"
+                      effects:ShadowRoutingEffect.Color="Black"
+                      effects:ShadowRoutingEffect.OffsetX="-1"
+                      effects:ShadowRoutingEffect.OffsetY="-1"
+                      effects:ShadowRoutingEffect.Radius="20"
+                      HorizontalOptions="FillAndExpand"
+                      VerticalOptions="FillAndExpand">
+
+
+                    <BoxView CornerRadius="6.93,6.93,6.93,6.93"
+                             HorizontalOptions="Fill"
+                             IsVisible="false"
+                             VerticalOptions="Center"
+                             Color="White" />
+
+                    <Label FontFamily="LatoBold"
+                           HorizontalTextAlignment="Center"
+                           Text="{Binding .}"
+                           TextColor="#002544"
+                           VerticalTextAlignment="Center" />
+
+
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    </Grid.GestureRecognizers>
+                </Grid>
+            </DataTemplate>
+        </BindableLayout.ItemTemplate>
+    </StackLayout>
+</Frame>

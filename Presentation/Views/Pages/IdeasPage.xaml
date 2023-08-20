@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="Maui.Ideas.App.Presentation.Views.Pages.IdeasPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Maui.Ideas.App.Presentation.Views.Controls"
+             xmlns:ext="clr-namespace:Maui.Ideas.App.Infrastructure.Extensions"
+             xmlns:model="clr-namespace:Maui.Ideas.App.Models"
+             xmlns:mx="http://compiledbindings.com/x"
+             xmlns:system="using:System"
+             xmlns:vm="clr-namespace:Maui.Ideas.App.Presentation.ViewModels.Pages"
+             Title="Ideas"
+             x:DataType="vm:MainPageViewModel"
+             IconImageSource="bard_fill">
+
+    <Grid CompressedLayout.IsHeadless="True">
+        <!--  Hack para resolver problema com header da CollectionView  -->
+        <ScrollView VerticalScrollBarVisibility="Never">
+            <StackLayout CompressedLayout.IsHeadless="True"
+                         Orientation="Vertical"
+                         Spacing="0">
+
+                <controls:SegmentedControl SegmentSelectedCommand="{x:Bind TabSelectedCommand}">
+                    <controls:SegmentedControl.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Daily</x:String>
+                            <x:String>Favorites</x:String>
+                        </x:Array>
+                    </controls:SegmentedControl.ItemsSource>
+                </controls:SegmentedControl>
+
+                <Label Margin="16,0"
+                       FontFamily="LatoRegular"
+                       FontSize="12"
+                       IsVisible="{x:Bind PostCollection.Count is gt 0}"
+                       Text="Expires in 23:56"
+                       TextColor="#576F84" />
+
+                <Label Margin="16"
+                       FontFamily="LatoRegular"
+                       FontSize="16"
+                       IsVisible="{x:Bind PostCollection.Count is gt 0}"
+                       Text="Find daily ideas for your inspiration"
+                       TextColor="#2E4C66" />
+
+                <CollectionView ItemsSource="{x:Bind PostCollection, IsItemsSource=True}"
+                                VerticalScrollBarVisibility="Never">
+
+                    <CollectionView.EmptyView>
+                        <StackLayout Margin="48,134"
+                                     Orientation="Vertical"
+                                     Spacing="16"
+                                     VerticalOptions="Start">
+
+                            <Image Source="bard_fill" />
+
+                            <Label FontFamily="LatoBold"
+                                   FontSize="18"
+                                   HorizontalTextAlignment="Center"
+                                   Text="Ideas storage"
+                                   VerticalTextAlignment="Center" />
+
+                            <Label FontFamily="LatoBold"
+                                   FontSize="18"
+                                   HorizontalTextAlignment="Center"
+                                   Text="Store here Ideas you like from Daily section or self generated content"
+                                   TextColor="#576F84"
+                                   VerticalTextAlignment="Center" />
+                        </StackLayout>
+                    </CollectionView.EmptyView>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="0"
+                                  x:DataType="model:Post"
+                                  ColumnDefinitions="107,*,107"
+                                  RowDefinitions="62,69,404,88,40,35">
+
+                                <Label Grid.Row="0"
+                                       Grid.ColumnSpan="3"
+                                       Margin="16,0"
+                                       FontFamily="LatoBlack"
+                                       FontSize="22"
+                                       LineBreakMode="WordWrap"
+                                       MaxLines="2"
+                                       Text="{x:Bind Title}"
+                                       TextColor="#002544"
+                                       VerticalTextAlignment="Center" />
+
+                                <controls:LazyImage Grid.Row="1"
+                                                    Margin="16,0"
+                                                    HeightRequest="48"
+                                                    HorizontalOptions="Start"
+                                                    Source="{x:Bind new system:Uri(User.Avatar)}"
+                                                    WidthRequest="48">
+                                    <controls:LazyImage.Clip>
+                                        <EllipseGeometry Center="24,24"
+                                                         RadiusX="24"
+                                                         RadiusY="24" />
+                                    </controls:LazyImage.Clip>
+                                </controls:LazyImage>
+
+                                <Label Grid.Row="1"
+                                       Grid.ColumnSpan="2"
+                                       Margin="70,0"
+                                       FontFamily="LatoBlack"
+                                       Text="{x:Bind User.Name}"
+                                       TextColor="#262626"
+                                       VerticalTextAlignment="Center" />
+
+                                <controls:LazyImage Grid.Row="2"
+                                                    Grid.ColumnSpan="3"
+                                                    Margin="0,16,0,0"
+                                                    Aspect="AspectFill"
+                                                    HeightRequest="404"
+                                                    HorizontalOptions="FillAndExpand"
+                                                    Source="{x:Bind new system:Uri(Image)}"
+                                                    VerticalOptions="Center" />
+
+                                <Image Grid.Row="2"
+                                       Grid.Column="2"
+                                       Margin="0,16,12,0"
+                                       HeightRequest="24"
+                                       HorizontalOptions="End"
+                                       Source="own_image_button"
+                                       VerticalOptions="Start" />
+
+                                <Label Grid.Row="3"
+                                       Grid.ColumnSpan="3"
+                                       Margin="16,0"
+                                       FontFamily="LatoBlack"
+                                       FontSize="16"
+                                       Text="{x:Bind Description}"
+                                       TextColor="#2E4C66"
+                                       VerticalTextAlignment="Center" />
+
+                                <Frame Grid.Row="4"
+                                       Margin="16,0"
+                                       Padding="0"
+                                       BorderColor="#dee3e7"
+                                       CornerRadius="10"
+                                       HeightRequest="40"
+                                       HorizontalOptions="StartAndExpand"
+                                       WidthRequest="75">
+
+                                    <ImageButton HeightRequest="20"
+                                                 Source="loop_right_line" />
+                                </Frame>
+
+                                <Frame Grid.Row="4"
+                                       Grid.Column="1"
+                                       Padding="0"
+                                       BorderColor="#dee3e7"
+                                       CornerRadius="10"
+                                       HeightRequest="40"
+                                       WidthRequest="200">
+                                    <StackLayout Orientation="Horizontal">
+                                        <ImageButton HeightRequest="20"
+                                                     HorizontalOptions="CenterAndExpand"
+                                                     Source="thumb_up_line" />
+
+                                        <BoxView HorizontalOptions="Center"
+                                                 VerticalOptions="FillAndExpand"
+                                                 WidthRequest="1"
+                                                 Color="#dee3e7" />
+
+                                        <ImageButton HeightRequest="20"
+                                                     HorizontalOptions="CenterAndExpand"
+                                                     Source="thumb_down_line" />
+                                    </StackLayout>
+                                </Frame>
+
+                                <Frame Grid.Row="4"
+                                       Grid.Column="2"
+                                       Margin="16,0"
+                                       BorderColor="#dee3e7"
+                                       CornerRadius="10"
+                                       HeightRequest="40"
+                                       HorizontalOptions="EndAndExpand"
+                                       WidthRequest="75">
+
+                                    <ImageButton HeightRequest="20"
+                                                 HorizontalOptions="CenterAndExpand"
+                                                 Source="bookmark_line" />
+                                </Frame>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
+
+        <Frame Margin="16"
+               Padding="0"
+               BorderColor="Transparent"
+               CornerRadius="20"
+               HeightRequest="56"
+               HorizontalOptions="Center"
+               VerticalOptions="End"
+               WidthRequest="56">
+
+            <Image Source="magic_fill"
+                   WidthRequest="24" />
+
+            <Frame.Background>
+                <LinearGradientBrush EndPoint="1,0">
+                    <GradientStop Offset="0.1" Color="#F0888F" />
+                    <GradientStop Offset="0.5" Color="#E65EE7" />
+                    <GradientStop Offset="1.0" Color="#4A84F7" />
+                </LinearGradientBrush>
+            </Frame.Background>
+        </Frame>
+    </Grid>
+</ContentPage>
