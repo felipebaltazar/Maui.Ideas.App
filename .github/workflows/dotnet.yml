@@ -4,13 +4,15 @@
 name: Buil App
 
 on:
+  pull_request:
+    branches:
+    - master
   push:
     branches:
-    - main
+    - master
     
 jobs:
-  build:
-    name: Build with dotnet
+  BuildAndroid:
     runs-on: windows-latest
 
     steps:
@@ -32,3 +34,15 @@ jobs:
 
     - name: Build with dotnet core
       run: dotnet build Maui.Ideas.App.sln --configuration Release
+      
+  UnitTests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET7
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '7.0.x'
+    - name: Run dotnet test
+      run: dotnet test Maui.Ideas.App.Tests/Maui.Ideas.App.Tests.csproj -v --configuration Debug
