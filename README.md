@@ -1,5 +1,10 @@
 # Maui.Ideas.App
+<div align="center">
+
 ![ezgif com-optimize](https://github.com/felipebaltazar/Maui.Ideas.App/assets/19656249/ff0e2658-56f2-486c-bcef-0977816aca52)
+ 
+</div>
+
 
 Maui application for personal feed explorer using some coding and layout best practices.
 Like async/await with ConfigureAwait for correct contexts. About this, i recommend this [great post from John Thiriet](https://johnthiriet.com/configure-await/) that explains context syncronization's impact on Xamarin.
