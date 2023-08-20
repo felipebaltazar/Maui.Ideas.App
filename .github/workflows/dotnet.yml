@@ -32,6 +32,11 @@ jobs:
     - name: Build with dotnet core
       run: dotnet build Maui.Ideas.App.sln --configuration Release
       
+    - uses: actions/upload-artifact@v3
+      with:
+        name: Publish apk
+        path: Maui.Ideas.App/**/*.apk
+      
   UnitTests:
     runs-on: windows-latest
 
