@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "TestProjectNameFormat": "$ProjectName$.Test",
+  "FileNameTemplate": "$ClassName$Tests",
+  "CustomMockFieldDeclarationTemplate": "private $CustomMockClass$ mock$InterfaceMockName$;",
+  "CustomMockFieldInitializationTemplate": "this.mock$InterfaceMockName$ = new $CustomMockClass$();",
+  "CustomMockObjectReferenceTemplate": "this.mock$InterfaceMockName$",
+  "Templates": {
+    "VisualStudio_None_File": "$UsingStatements$\r\n\r\nnamespace $Namespace$;\r\n\r\n\t[TestClass]\r\n\tpublic class $ClassName$Tests\r\n\t{\r\n\t\t$TestMethods$\r\n\t}\r\n",
+    "xUnit_Moq_File": "$UsingStatements$\r\n\r\nnamespace $Namespace$;\r\n\r\npublic class $ClassName$Tests\r\n{\r\n\tprivate readonly MockRepository _mockRepository;\r\n\t\t\r\n\t$MockFieldDeclarations$\r\n\t\t\r\n\tpublic $ClassName$Tests()\r\n\t{\r\n\t\t_mockRepository = new MockRepository(MockBehavior.Strict);\r\n\t\t\t\r\n\t\t$MockFieldInitializations$\r\n\t}\r\n\t\t\r\n\tprivate $ClassName$ Create$ClassNameShort$()\r\n\t{\r\n\t\treturn $ExplicitConstructor$;\r\n\t}\r\n\t\t\r\n\t$TestMethods$\r\n}\r\n\r\n",
+    "xUnit_Moq_ExtraUsingNamespaces": "Maui.Ideas.App.Abstractions\r\nMaui.Ideas.App.Models\r\nMaui.Ideas.App.Presentation.ViewModels.Pages",
+    "xUnit_Moq_MockFieldDeclaration": "private readonly Mock<$InterfaceType$> _mock$InterfaceMockName$;",
+    "xUnit_Moq_MockFieldInitialization": "_mock$InterfaceMockName$ = _mockRepository.Create<$InterfaceType$>();",
+    "xUnit_Moq_MockObjectReference": "_mock$InterfaceMockName$.Object"
+  }
+}
