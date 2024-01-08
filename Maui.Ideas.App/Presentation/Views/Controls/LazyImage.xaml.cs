@@ -40,7 +40,7 @@ public partial class LazyImage : ContentView
 
         if (nameof(Source).Equals(propertyName))
         {
-            _ = Task.Run(async () => StartDownloadImageAsync(Source));
+            _ = Task.Run(() => StartDownloadImageAsync(Source));
         }
     }
 
