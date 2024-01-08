@@ -71,8 +71,10 @@ public sealed class MainPageViewModelTests
 
         await ViewModel.TabSelectedCommand.ExecuteAsync(tabName);
 
+        string assertionMessage = $"Post collection count should be '{expectedItemsCount}' for '{tabName}' tab";
+
         ViewModel.PostCollection.Count
             .Should()
-            .Be(expectedItemsCount);
+            .Be(expectedItemsCount, assertionMessage);
     }
 }
