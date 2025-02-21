@@ -40,7 +40,7 @@
 		<PackageReference Include="Mopups" Version="1.1.1" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="Polly" Version="7.2.4" />
-		<PackageReference Include="Refit" Version="7.0.0" />
+		<PackageReference Include="Refit" Version="7.2.22" />
 	</ItemGroup>
 
 	<ItemGroup>
